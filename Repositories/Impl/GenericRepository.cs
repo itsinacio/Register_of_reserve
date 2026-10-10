@@ -23,9 +23,12 @@ public class GenericRepository<T> : IRepository<T> where T : Entity
     {
         return _dataset.Find(id)!;
     }
-    public List<T> FindAll()
+    public List<T> FindList(int pageNumber = 1)
     {
-        return _dataset.ToList();
+        return _dataset
+        .Skip((pageNumber - 1) * 15) 
+        .Take(15)                    
+        .ToList();
     }
     public T Update(T item)
     {
@@ -38,7 +41,7 @@ public class GenericRepository<T> : IRepository<T> where T : Entity
     public void Delete(long id)
     {
         var existingItem = _dataset.Find(id);
-        if(existingItem == null) return ;
+        if (existingItem == null) return;
         _dataset.Remove(existingItem);
         _context.SaveChanges();
     }

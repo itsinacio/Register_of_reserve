@@ -1,6 +1,7 @@
 ﻿using TechNova.Api.Data.Converter.Contract;
 using TechNova.Api.Data.DTO;
 using TechNova.Api.Model;
+using TechNova.Api.Model.Enum;
 
 namespace TechNova.Api.Data.Converter.Impl;
 
@@ -12,6 +13,7 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
         return new Reserve
         {
             Id = origin.Id,
+            Status = ReserverStatus.Active,
             EmployeeName = origin.EmployeeName,
             StartOfReserve = origin.StartOfReserve,
             EndOfReserve = origin.EndOfReserve,
@@ -29,6 +31,7 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
         if (origin == null) throw new ArgumentNullException(nameof(origin));
         return new ReserveResponseDTO
         {
+            Status = origin.Status,
             EmployeeName = origin.EmployeeName,
             StartOfReserve = origin.StartOfReserve,
             EndOfReserve = origin.EndOfReserve,
