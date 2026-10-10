@@ -1,0 +1,6 @@
+@TechNova.Api_HostAddress = http://localhost:5043
+
+GET {{TechNova.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
