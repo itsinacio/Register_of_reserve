@@ -1,4 +1,6 @@
-﻿namespace TechNova.Api.Data.DTO;
+﻿using TechNova.Api.Model.Enum;
+
+namespace TechNova.Api.Data.DTO;
 
 public class ReserveDTO
 {

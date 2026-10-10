@@ -12,6 +12,8 @@ public class RoomConvert : IParse<RoomDTO, Room>, IParse<Room, RoomResponseDTO>
         return new Room
         {
             Id = origin.Id,
+            Available = origin.Available,
+            UnavailabilityReason = origin.UnavailabilityReason,
             NameRoom = origin.NameRoom,
             Capacity = origin.Capacity,
             Projector = origin.Projector
@@ -28,6 +30,8 @@ public class RoomConvert : IParse<RoomDTO, Room>, IParse<Room, RoomResponseDTO>
         if (origin == null) throw new ArgumentNullException(nameof(origin));
         return new RoomResponseDTO
         {
+            Available = origin.Available,
+            UnavailabilityReason = origin.UnavailabilityReason,
             NameRoom = origin.NameRoom,
             Capacity = origin.Capacity,
             Projector = origin.Projector
