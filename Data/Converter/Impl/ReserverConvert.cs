@@ -13,7 +13,7 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
         return new Reserve
         {
             Id = origin.Id,
-            Status = ReserverStatus.Active,
+            Status = origin.Status,
             EmployeeName = origin.EmployeeName,
             StartOfReserve = origin.StartOfReserve,
             EndOfReserve = origin.EndOfReserve,

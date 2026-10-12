@@ -7,10 +7,10 @@ public interface IReserveService
     ReserveResponseDTO Create(ReserveDTO reserve);
     ReserveResponseDTO FindById(long id);
     List<ReserveResponseDTO> FindList(int pageNumber = 1);
-    List<ReserveResponseDTO> FindByRoomId(long roomId);
-    List<ReserveResponseDTO> FindByPeriod(DateTime start, DateTime end);
+    List<ReserveResponseDTO> FindByRoomId(long roomId, int pageNumber = 1);
+    List<ReserveResponseDTO> FindByPeriod(ReserverPeriodFilterDTO filter);
     void Canceled (long id);
     void Completed (long id);
-    ReserveResponseDTO Update(ReserveDTO reserve);
+    ReserveResponseDTO UpdateReserve(ReserveDTO reserve);
     void Delete(long id);
 }
