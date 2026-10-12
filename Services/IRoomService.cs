@@ -9,6 +9,6 @@ public interface IRoomService
     RoomResponseDTO FindById(long id);
     List<RoomResponseDTO> FindList(int pageNumber = 1);
     RoomResponseDTO Update(RoomDTO room);
-    void SetUnavailable(long id, string reason);
-    void SetAvailable(long id);
+    RoomResponseDTO SetUnavailable(long id, RoomReasonDTO reason);
+    RoomResponseDTO SetAvailable(long id);
 }
