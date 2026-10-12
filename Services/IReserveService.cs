@@ -11,6 +11,5 @@ public interface IReserveService
     List<ReserveResponseDTO> FindByPeriod(ReserverPeriodFilterDTO filter);
     void Canceled (long id);
     void Completed (long id);
-    ReserveResponseDTO UpdateReserve(ReserveDTO reserve);
     void Delete(long id);
 }
