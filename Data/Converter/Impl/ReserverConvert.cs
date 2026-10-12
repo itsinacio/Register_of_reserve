@@ -14,6 +14,8 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
         {
             Id = origin.Id,
             Status = origin.Status,
+            NeedProjector = origin.NeedProjector,
+            RequiredCapacity = origin.RequiredCapacity,
             EmployeeName = origin.EmployeeName,
             StartOfReserve = origin.StartOfReserve,
             EndOfReserve = origin.EndOfReserve,
@@ -32,6 +34,8 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
         return new ReserveResponseDTO
         {
             Status = origin.Status,
+            NeedProjector = origin.NeedProjector,
+            RequiredCapacity = origin.RequiredCapacity,
             EmployeeName = origin.EmployeeName,
             StartOfReserve = origin.StartOfReserve,
             EndOfReserve = origin.EndOfReserve,
