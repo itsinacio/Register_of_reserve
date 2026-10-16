@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TechNova.Api.Data.Converter.Impl;
+﻿using TechNova.Api.Data.Converter.Impl;
 using TechNova.Api.Data.DTO;
 using TechNova.Api.Model;
-using TechNova.Api.Model.Context;
 using TechNova.Api.Model.Enum;
 using TechNova.Api.Repositories;
 
