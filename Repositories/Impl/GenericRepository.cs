@@ -6,8 +6,8 @@ namespace TechNova.Api.Repositories.Impl;
 
 public class GenericRepository<T> : IRepository<T> where T : Entity
 {
-    private SqlServerContext _context;
-    private DbSet<T> _dataset;
+    protected SqlServerContext _context;
+    protected DbSet<T> _dataset;
     public GenericRepository(SqlServerContext context)
     {
         _context = context;
