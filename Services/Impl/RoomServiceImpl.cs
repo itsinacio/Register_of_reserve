@@ -35,7 +35,6 @@ public class RoomServiceImpl : IRoomService
     {
         var aux = _repository.FindById(room.Id);
         if (aux == null) return null!;
-        if (aux.Available != room.Available || aux.UnavailabilityReason != room.UnavailabilityReason) throw new InvalidOperationException("No to alter this variables here");
         aux.NameRoom = room.NameRoom;
         aux.Capacity = room.Capacity;
         aux.Projector = room.Projector;
