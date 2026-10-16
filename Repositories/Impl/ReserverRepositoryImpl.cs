@@ -21,6 +21,7 @@ public class ReserverRepositoryImpl : GenericRepository<Reserve>, IReserverRepos
     }
     public List<Reserve> FindByPeriod(ReserverPeriodFilterDTO filter)
     {
+        if(filter.Start > filter.End) throw new InvalidOperationException("Hour start of reserver not is up this hour end of reserver");
         return _dataset
             .Where(x => x.Status == ReserverStatus.Active &&
                     ((filter.Start <= x.StartOfReserve && filter.End > x.StartOfReserve) ||

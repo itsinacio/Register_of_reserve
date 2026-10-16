@@ -19,6 +19,7 @@ public class RoomServiceImpl : IRoomService
     public RoomResponseDTO Create(RoomDTO room)
     {
         if (room.Available == false || room.UnavailabilityReason != null) throw new InvalidOperationException("No to alter this variables");
+        if(room.Capacity <= 0) throw new InvalidOperationException("No exist room with capacity less than or equal to 0");
         var NewRoom = _converter.Parse(room);
         NewRoom = _repository.Create(NewRoom);
         return _converter.Parse(NewRoom);
@@ -35,6 +36,7 @@ public class RoomServiceImpl : IRoomService
     {
         var aux = _repository.FindById(room.Id);
         if (aux == null) return null!;
+        if(room.Capacity <= 0) throw new InvalidOperationException("No exist room with capacity less than or equal to 0");
         aux.NameRoom = room.NameRoom;
         aux.Capacity = room.Capacity;
         aux.Projector = room.Projector;
