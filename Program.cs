@@ -16,10 +16,14 @@ builder.Services.AddScoped<IRoomService, RoomServiceImpl>();
 builder.Services.AddScoped<IReserverRepository, ReserverRepositoryImpl>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI();
     app.MapOpenApi();
 }
 
