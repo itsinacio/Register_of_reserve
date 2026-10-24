@@ -1,0 +1,10 @@
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Auditório Master', 100, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Sala de Videoconferência', 8, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(0, N'Manutenção no Ar Condicionado', N'Sala Criativa (Aquário)', 12, 0);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Cabine de Foco 1', 2, 0);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Cabine de Foco 2', 2, 0);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(0, N'Uso Exclusivo da Diretoria', N'Sala Executiva', 15, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Laboratório de Inovação', 25, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(0, N'Troca de Lâmpadas do Projetor', N'Sala de Treinamento A', 30, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Sala de Reunião Média 1', 15, 1);
+INSERT INTO Tech_Nova.dbo.Rooms (Available, UnavailabilityReason, NameRoom, Capacity, Projector) VALUES(1, NULL, N'Sala de Reunião Média 2', 15, 0);

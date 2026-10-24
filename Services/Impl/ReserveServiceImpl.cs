@@ -22,10 +22,11 @@ public class ReserveServiceImpl : IReserveService
     {
         var aux = _repositoryRoom.FindById(reserve.RoomId);
         if (aux == null) throw new InvalidOperationException("No exist this Room");
+        if (aux.Available == false) throw new InvalidOperationException("This Room is no available");
         if (reserve.Status != ReserverStatus.Active) throw new InvalidOperationException("No to alter this variables");
-        if(reserve.StartOfReserve > reserve.EndOfReserve) throw new InvalidOperationException("Hour start of reserver not is up this hour end of reserver");
-        if((reserve.NeedProjector && !aux.Projector) || aux.Capacity < reserve.RequiredCapacity) throw new InvalidOperationException("Without some of the requirements");
-        if(ExistReserveThisHours(reserve.StartOfReserve,reserve.EndOfReserve,reserve.RoomId)) throw new InvalidOperationException("Exist reserve this hours");
+        if (reserve.StartOfReserve >= reserve.EndOfReserve) throw new InvalidOperationException("Hour start of reserver not is up this hour end of reserver");
+        if ((reserve.NeedProjector && !aux.Projector) || aux.Capacity < reserve.RequiredCapacity) throw new InvalidOperationException("Without some of the requirements");
+        if (ExistReserveThisHours(reserve.StartOfReserve, reserve.EndOfReserve, reserve.RoomId)) throw new InvalidOperationException("Exist reserve this hours");
         var NewReserve = _converter.Parse(reserve);
         NewReserve = _repository.Create(NewReserve);
         return _converter.Parse(NewReserve);
@@ -40,7 +41,7 @@ public class ReserveServiceImpl : IReserveService
     }
     public List<ReserveResponseDTO> FindByRoomId(long roomId, int pageNumber = 1)
     {
-        return _converter.ParseList(_repository.FindByRoomId(roomId,pageNumber));
+        return _converter.ParseList(_repository.FindByRoomId(roomId, pageNumber));
     }
     public List<ReserveResponseDTO> FindByPeriod(ReserverPeriodFilterDTO filter)
     {

@@ -20,7 +20,7 @@ namespace MyApp.Namespace
         [HttpGet("FindL/{pageNumber}")]
         public IActionResult Get(int pageNumber)
         {
-            _logger.LogInformation("Fetching all Rooms");
+            _logger.LogInformation("Fetching all Reservations");
             return Ok(_reserveService.FindList(pageNumber));
         }
 
