@@ -9,7 +9,7 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
 {
     public Reserve Parse(ReserveDTO origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return new Reserve
         {
             Id = origin.Id,
@@ -24,13 +24,13 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
     }
     public List<Reserve> ParseList(List<ReserveDTO> origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return origin.Select(item => Parse(item)).ToList();
     }
 
     public ReserveResponseDTO Parse(Reserve origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return new ReserveResponseDTO
         {
             Status = origin.Status,
@@ -44,7 +44,7 @@ public class ReserverConvert : IParse<ReserveDTO, Reserve>, IParse<Reserve, Rese
     }
     public List<ReserveResponseDTO> ParseList(List<Reserve> origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return origin.Select(item => Parse(item)).ToList();
     }
 }

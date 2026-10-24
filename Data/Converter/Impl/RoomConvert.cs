@@ -8,7 +8,7 @@ public class RoomConvert : IParse<RoomDTO, Room>, IParse<Room, RoomResponseDTO>
 {
     public Room Parse(RoomDTO origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return new Room
         {
             Id = origin.Id,
@@ -21,13 +21,13 @@ public class RoomConvert : IParse<RoomDTO, Room>, IParse<Room, RoomResponseDTO>
     }
     public List<Room> ParseList(List<RoomDTO> origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return origin.Select(item => Parse(item)).ToList();
     }
 
     public RoomResponseDTO Parse(Room origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return new RoomResponseDTO
         {
             Available = origin.Available,
@@ -39,7 +39,7 @@ public class RoomConvert : IParse<RoomDTO, Room>, IParse<Room, RoomResponseDTO>
     }
     public List<RoomResponseDTO> ParseList(List<Room> origin)
     {
-        if (origin == null) throw new ArgumentNullException(nameof(origin));
+        if (origin == null) return null!;
         return origin.Select(item => Parse(item)).ToList();
     }
 }
